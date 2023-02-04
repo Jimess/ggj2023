@@ -29,13 +29,13 @@ public class LevelController : Singleton<LevelController>
 
     private void Start()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void StartGame()
     {
         Debug.Log("Starts game");
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         OnStart?.Invoke();
     }
 
