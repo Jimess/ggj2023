@@ -54,6 +54,6 @@ public class PowerUpTrigger : MonoBehaviour
     }
     public void ActivateBounce(AcornJumper acornJumper)
     {
-        acornJumper?.Bounce(5.0f, new Vector2());
+        acornJumper?.Bounce(5.0f, null);
     }
 }
