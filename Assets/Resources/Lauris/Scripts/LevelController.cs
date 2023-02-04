@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelController : Singleton<LevelController>
 {
-    private const int MAX_LIFE = 2;
+    private const int MAX_LIFE = 3;
     public delegate void OnStartDelegate();
     public delegate void OnEndDelegate(bool win);
 
@@ -14,6 +14,7 @@ public class LevelController : Singleton<LevelController>
 
     [SerializeField]
     private int acornLife = MAX_LIFE;
+    private int maxLife;
     private bool invurnable = false;
 
     private void OnEnable()
@@ -30,7 +31,7 @@ public class LevelController : Singleton<LevelController>
 
     private void Start()
     {
-        //Time.timeScale = 0f;
+        maxLife = acornLife;
     }
 
     public void StartGame()
@@ -48,9 +49,9 @@ public class LevelController : Singleton<LevelController>
     public void IncreaseLife()
     {
         acornLife += 1;
-        if (acornLife > MAX_LIFE)
+        if (acornLife > maxLife)
         {
-            acornLife = MAX_LIFE;
+            acornLife = maxLife;
         }
     }
     public void ReduceLife()
