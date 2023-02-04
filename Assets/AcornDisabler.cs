@@ -43,4 +43,3 @@ public class AcornDisabler : MonoBehaviour
         GetComponent<AcornJumper>().enabled = true;
     }
 }
-}
