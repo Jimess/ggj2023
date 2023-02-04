@@ -65,8 +65,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.53}
-  m_Size: {x: 1.53, y: 1.71}
+  m_Offset: {x: 0, y: -0.48}
+  m_Size: {x: 1.69, y: 1.97}
   m_Direction: 0
 --- !u!114 &8974124311653075063
 MonoBehaviour:
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d746ac62ebcc9f41af5f4a430b90c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 5
+  bounceForce: 2
 --- !u!1 &8974124312194831844
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputForce: 5
-  initialRotation: 50
-  minimalRotation: 1
+  initialRotation: 60
+  maxRotation: 240
 --- !u!1 &8974124312537196805
 GameObject:
   m_ObjectHideFlags: 0

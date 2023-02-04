@@ -5,29 +5,25 @@ using UnityEngine;
 public class AcornRotator : MonoBehaviour
 {
     [SerializeField]
-    private float inputForce = 1.0f;
+    private float inputForce = 5.0f;
 
     [SerializeField]
-    private float initialRotation = 10.0f;
+    private float initialRotation = 60.0f;
 
     [SerializeField]
-    private float minimalRotation = 1.0f;
+    private float maxRotation = 240.0f;
+
     private Rigidbody2D acorn;
-    private Vector3 oldAngle;
     void Start()
     {
         acorn = GetComponent<Rigidbody2D>();
-        acorn.AddTorque(initialRotation);
-    }
-
-    void Update()
-    {
-        Debug.Log(transform.rotation.eulerAngles);
+        acorn.angularVelocity = initialRotation;
     }
 
     void FixedUpdate()
     {
         float inputDirection = Input.GetAxis("Horizontal");
-        acorn.AddTorque(inputForce * inputDirection);
+        acorn.angularVelocity += inputForce * -inputDirection;
+        Mathf.Clamp(acorn.angularVelocity, -maxRotation, maxRotation);
     }
 }
