@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionManager : Singleton<CollisionManager>
@@ -25,12 +23,12 @@ public class CollisionManager : Singleton<CollisionManager>
     {
         if (other.CompareTag(TRACK_TAG))
         {
-            OnAcornTrackCollision();
+            OnAcornTrackCollision?.Invoke();
         }
 
         if (other.CompareTag(END_TAG))
         {
-            OnAcornEndCollision();
+            OnAcornEndCollision?.Invoke(); ;
         }
     }
 }

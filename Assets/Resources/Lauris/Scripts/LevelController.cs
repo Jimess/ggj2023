@@ -11,7 +11,7 @@ public class LevelController : Singleton<LevelController>
     public static OnStartDelegate OnStart;
     public static OnEndDelegate OnEnd;
 
-    private void Awake()
+    private void OnEnable()
     {
         CollisionManager.OnAcornEndCollision += EndGame;
     }
@@ -35,11 +35,12 @@ public class LevelController : Singleton<LevelController>
 
     public void StartGame()
     {
-        OnStart();
+        Debug.Log("Starts game");
+        OnStart?.Invoke();
     }
 
     public void EndGame()
     {
-        OnEnd();
+        OnEnd?.Invoke();
     }
 }
