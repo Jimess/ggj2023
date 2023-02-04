@@ -27,6 +27,9 @@ public class CollisionManager : Singleton<CollisionManager>
     public void OnCollision(GameObject acorn, GameObject other, Vector2 hitPoint)
     {
         if (isCD) return;
+        isCD = true;
+        StartCoroutine(CD(1f));
+
         if (other.CompareTag(TRACK_TAG))
         {
             Debug.Log($"HIT {other.name}");
@@ -37,9 +40,6 @@ public class CollisionManager : Singleton<CollisionManager>
         {
             OnAcornEndCollision?.Invoke(); ;
         }
-
-        isCD = true;
-        StartCoroutine(CD(1f));
     }
 
 

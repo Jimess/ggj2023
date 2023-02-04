@@ -11,7 +11,9 @@ public class LevelController : Singleton<LevelController>
     public static OnStartDelegate OnStart;
     public static OnEndDelegate OnEnd;
 
+    [SerializeField]
     private int acornLife = 3;
+    private bool invurnable = false;
 
     private void OnEnable()
     {
@@ -38,8 +40,14 @@ public class LevelController : Singleton<LevelController>
 
     public void ReduceLife()
     {
+        if (isInvurnable()) return;
+        invurnable = true;
+        StartCoroutine(StartInvurnableTimer(1f));
+
         acornLife -= 1;
-        if (acornLife <= 0) {
+        Debug.Log($"Damage taken, life remaning: {acornLife}");
+        if (acornLife <= 0)
+        {
             EndGame();
         }
     }
@@ -47,5 +55,16 @@ public class LevelController : Singleton<LevelController>
     public int getAcornLife()
     {
         return acornLife;
+    }
+
+    public bool isInvurnable()
+    {
+        return invurnable;
+    }
+
+    IEnumerator StartInvurnableTimer(float invurnableTime)
+    {
+        yield return new WaitForSeconds(invurnableTime);
+        invurnable = false;
     }
 }
