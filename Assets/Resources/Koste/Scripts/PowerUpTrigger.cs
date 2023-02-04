@@ -46,7 +46,7 @@ public class PowerUpTrigger : MonoBehaviour
                     return;
             }
             CollisionManager.Instance.OnPowerUp(powerUp);
-            
+
             onComplete?.Invoke();
             if (killAfter)
             {
@@ -66,7 +66,6 @@ public class PowerUpTrigger : MonoBehaviour
     }
     public void ActivateBounce(AcornJumper acornJumper)
     {
-        Debug.Log("JUMP UP!");
-        acornJumper.Bounce(1f, null);
+        acornJumper.Bounce(3.0f, null);
     }
 }
