@@ -11,6 +11,16 @@ public class LevelController : Singleton<LevelController>
     public static OnStartDelegate OnStart;
     public static OnEndDelegate OnEnd;
 
+    private void Awake()
+    {
+        CollisionManager.OnAcornEndCollision += EndGame;
+    }
+
+    private void OnDestroy()
+    {
+        CollisionManager.OnAcornEndCollision -= EndGame;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
