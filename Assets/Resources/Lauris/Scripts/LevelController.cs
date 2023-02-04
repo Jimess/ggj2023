@@ -40,7 +40,7 @@ public class LevelController : Singleton<LevelController>
 
     public void ReduceLife()
     {
-        if (isInvurnable()) return;
+        if (IsInvurnable()) return;
         invurnable = true;
         StartCoroutine(StartInvurnableTimer(1f));
 
@@ -52,12 +52,12 @@ public class LevelController : Singleton<LevelController>
         }
     }
 
-    public int getAcornLife()
+    public int GetAcornLife()
     {
         return acornLife;
     }
 
-    public bool isInvurnable()
+    public bool IsInvurnable()
     {
         return invurnable;
     }
