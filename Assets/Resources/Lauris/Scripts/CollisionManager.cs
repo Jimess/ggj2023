@@ -7,11 +7,12 @@ public class CollisionManager : Singleton<CollisionManager>
     public const string TRACK_TAG = "Track";
     public const string POWERUP_TAG = "Powerup";
     public const string END_TAG = "End";
+    public const string ACORN_TAG = "Acorn";
     private bool isCD = false;
 
     public delegate void OnAcornTrackCollisionDelegate(float bounceForce, Vector2 hitPoint);
     public delegate void OnAcornEndCollisionDelegate(bool win);
-    public delegate void OnAcornPowerupCollisionDelegate();
+    public delegate void OnAcornPowerupCollisionDelegate(PowerUp powerup);
     public delegate void OnAcornDamageTakenDelegate();
 
     public static OnAcornTrackCollisionDelegate OnAcornTrackCollision;
@@ -19,6 +20,10 @@ public class CollisionManager : Singleton<CollisionManager>
     public static OnAcornPowerupCollisionDelegate OnAcornPowerupCollision;
     public static OnAcornDamageTakenDelegate OnAcornDamageTaken;
 
+    public void OnPowerUp(PowerUp powerUp)
+    {
+        OnAcornPowerupCollision?.Invoke(powerUp);
+    }
     public void OnDamageTaken()
     {
         OnAcornDamageTaken?.Invoke();

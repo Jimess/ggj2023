@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LevelController : Singleton<LevelController>
 {
+    private const int MAX_LIFE = 2;
     public delegate void OnStartDelegate();
     public delegate void OnEndDelegate(bool win);
 
@@ -12,7 +13,7 @@ public class LevelController : Singleton<LevelController>
     public static OnEndDelegate OnEnd;
 
     [SerializeField]
-    private int acornLife = 3;
+    private int acornLife = MAX_LIFE;
     private bool invurnable = false;
 
     private void OnEnable()
@@ -29,13 +30,13 @@ public class LevelController : Singleton<LevelController>
 
     private void Start()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void StartGame()
     {
         Debug.Log("Starts game");
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         OnStart?.Invoke();
     }
 
@@ -44,14 +45,20 @@ public class LevelController : Singleton<LevelController>
         OnEnd?.Invoke(win);
     }
 
+    public void IncreaseLife()
+    {
+        acornLife += 1;
+        if (acornLife > MAX_LIFE)
+        {
+            acornLife = MAX_LIFE;
+        }
+    }
     public void ReduceLife()
     {
         if (IsInvurnable()) return;
-        invurnable = true;
-        StartCoroutine(StartInvurnableTimer(1f));
+        MakeInvurnable(1.0f);
 
         acornLife -= 1;
-        Debug.Log($"Damage taken, life remaning: {acornLife}");
         if (acornLife <= 0)
         {
             EndGame(false);
@@ -66,6 +73,12 @@ public class LevelController : Singleton<LevelController>
     public bool IsInvurnable()
     {
         return invurnable;
+    }
+
+    public void MakeInvurnable(float invurnableTime)
+    {
+        invurnable = true;
+        StartCoroutine(StartInvurnableTimer(invurnableTime));
     }
 
     IEnumerator StartInvurnableTimer(float invurnableTime)
