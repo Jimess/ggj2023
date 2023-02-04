@@ -18,6 +18,6 @@ public class End : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CollisionManager.Instance.OnCollision(collision.gameObject, gameObject, Vector2.zero);
+        CollisionManager.Instance.OnCollision(collision.gameObject, gameObject, null);
     }
 }

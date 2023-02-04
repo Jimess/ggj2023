@@ -29,7 +29,7 @@ public class AcornAnimations : MonoBehaviour
         
     }
 
-    private void GoodHitAnim(float bounceForce, Vector2 point)
+    private void GoodHitAnim(float bounceForce, Collision2D collision2D)
     {
         anim.SetTrigger(GOOD_HIT);
     }

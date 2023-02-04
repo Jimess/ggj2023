@@ -19,6 +19,6 @@ public class AcornCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        CollisionManager.Instance.OnCollision(gameObject, collision.gameObject, collision.contacts[0].point);
+        CollisionManager.Instance.OnCollision(gameObject, collision.gameObject, collision);
     }
 }

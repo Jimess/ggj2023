@@ -10,7 +10,7 @@ public class CollisionManager : Singleton<CollisionManager>
     public const string ACORN_TAG = "Acorn";
     private bool isCD = false;
 
-    public delegate void OnAcornTrackCollisionDelegate(float bounceForce, Vector2 hitPoint);
+    public delegate void OnAcornTrackCollisionDelegate(float bounceForce, Collision2D collision2D);
     public delegate void OnAcornEndCollisionDelegate(bool win);
     public delegate void OnAcornPowerupCollisionDelegate(PowerUp powerup);
     public delegate void OnAcornDamageTakenDelegate();
@@ -29,7 +29,7 @@ public class CollisionManager : Singleton<CollisionManager>
         OnAcornDamageTaken?.Invoke();
     }
 
-    public void OnCollision(GameObject acorn, GameObject other, Vector2 hitPoint)
+    public void OnCollision(GameObject acorn, GameObject other, Collision2D collision2D)
     {
         if (isCD) return;
         isCD = true;
@@ -38,7 +38,7 @@ public class CollisionManager : Singleton<CollisionManager>
         if (other.CompareTag(TRACK_TAG))
         {
             Debug.Log($"HIT {other.name}");
-            OnAcornTrackCollision?.Invoke(acorn.GetComponent<AcornCollision>().getBounceForce(), hitPoint);
+            OnAcornTrackCollision?.Invoke(acorn.GetComponent<AcornCollision>().getBounceForce(), collision2D);
         }
 
         if (other.CompareTag(END_TAG))

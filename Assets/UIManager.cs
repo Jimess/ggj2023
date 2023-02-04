@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject endGameUI;
     [SerializeField] TextMeshProUGUI winLoseText;
+    [SerializeField] float spawnAfter = 3f;
 
     private const string WIN_TEXT = "GG WP\n <color=green>YOU WIN!";
     private const string LOSE_TEXT = "GG WP\n <color=red>YOU LOSE!";
@@ -14,12 +15,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        LevelController.OnEnd += ShowUI;
+        LevelController.OnEnd += ShowUIAfter;
     }
 
     private void OnDisable()
     {
-        LevelController.OnEnd -= ShowUI;
+        LevelController.OnEnd -= ShowUIAfter;
     }
 
     // Start is called before the first frame update
@@ -34,10 +35,15 @@ public class UIManager : MonoBehaviour
         
     }
 
-    private void ShowUI(bool win)
+    void ShowUIAfter(bool win)
+    {
+        winLoseText.SetText(win == true ? WIN_TEXT : LOSE_TEXT);
+        Invoke("EnableUI", spawnAfter);
+    }
+
+    void EnableUI()
     {
         endGameUI.SetActive(true);
-        winLoseText.SetText(win == true ? WIN_TEXT : LOSE_TEXT);
     }
 
     public void RetryPressed()
