@@ -35,8 +35,8 @@ public class AcornJumper : MonoBehaviour
     {
         Vector2 bounceVector = CalculateBounceVector();
         // Debug.Log(bounceVector);
-        //acorn.AddForce(bounceVector * bounceForce, ForceMode2D.Impulse);
-        acorn.AddForceAtPosition(bounceVector * bounceForce, point, ForceMode2D.Impulse);
+        acorn.AddForce(bounceVector * bounceForce, ForceMode2D.Impulse);
+        //acorn.AddForceAtPosition(bounceVector * bounceForce, point, ForceMode2D.Impulse);
     }
 
     private Vector2 CalculateBounceVector()
