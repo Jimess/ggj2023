@@ -31,11 +31,12 @@ public class AcornJumper : MonoBehaviour
         CollisionManager.OnAcornTrackCollision -= Bounce;
     }
 
-    private void Bounce(float bounceForce)
+    private void Bounce(float bounceForce, Vector2 point)
     {
         Vector2 bounceVector = CalculateBounceVector();
         // Debug.Log(bounceVector);
-        acorn.AddForce(bounceVector * bounceForce, ForceMode2D.Impulse);
+        //acorn.AddForce(bounceVector * bounceForce, ForceMode2D.Impulse);
+        acorn.AddForceAtPosition(bounceVector * bounceForce, point, ForceMode2D.Impulse);
     }
 
     private Vector2 CalculateBounceVector()

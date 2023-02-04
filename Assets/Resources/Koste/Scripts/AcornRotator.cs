@@ -17,7 +17,7 @@ public class AcornRotator : MonoBehaviour
     void Start()
     {
         acorn = GetComponent<Rigidbody2D>();
-        acorn.angularVelocity = initialRotation;
+        //acorn.angularVelocity = initialRotation;
     }
 
     void FixedUpdate()

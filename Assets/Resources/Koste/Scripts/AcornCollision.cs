@@ -12,8 +12,13 @@ public class AcornCollision : MonoBehaviour
         return bounceForce;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    CollisionManager.Instance.OnCollision(this, collision.gameObject);
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        CollisionManager.Instance.OnCollision(this, collision.gameObject);
+        CollisionManager.Instance.OnCollision(gameObject, collision.gameObject, collision.contacts[0].point);
     }
 }
