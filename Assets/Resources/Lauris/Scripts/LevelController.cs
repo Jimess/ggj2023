@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelController : Singleton<LevelController>
 {
     public delegate void OnStartDelegate();
-    public delegate void OnEndDelegate();
+    public delegate void OnEndDelegate(bool win);
 
     public static OnStartDelegate OnStart;
     public static OnEndDelegate OnEnd;
@@ -33,9 +33,9 @@ public class LevelController : Singleton<LevelController>
         OnStart?.Invoke();
     }
 
-    public void EndGame()
+    public void EndGame(bool win)
     {
-        OnEnd?.Invoke();
+        OnEnd?.Invoke(win);
     }
 
     public void ReduceLife()
@@ -48,7 +48,7 @@ public class LevelController : Singleton<LevelController>
         Debug.Log($"Damage taken, life remaning: {acornLife}");
         if (acornLife <= 0)
         {
-            EndGame();
+            EndGame(false);
         }
     }
 

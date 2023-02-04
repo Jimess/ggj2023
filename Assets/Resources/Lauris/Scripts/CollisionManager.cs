@@ -10,7 +10,7 @@ public class CollisionManager : Singleton<CollisionManager>
     private bool isCD = false;
 
     public delegate void OnAcornTrackCollisionDelegate(float bounceForce, Vector2 hitPoint);
-    public delegate void OnAcornEndCollisionDelegate();
+    public delegate void OnAcornEndCollisionDelegate(bool win);
     public delegate void OnAcornPowerupCollisionDelegate();
     public delegate void OnAcornDamageTakenDelegate();
 
@@ -38,10 +38,9 @@ public class CollisionManager : Singleton<CollisionManager>
 
         if (other.CompareTag(END_TAG))
         {
-            OnAcornEndCollision?.Invoke(); ;
+            OnAcornEndCollision?.Invoke(true); ;
         }
     }
-
 
     IEnumerator CD(float cdTime)
     {
