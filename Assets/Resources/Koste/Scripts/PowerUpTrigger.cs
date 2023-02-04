@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum PowerUp
 {
@@ -14,6 +15,12 @@ public class PowerUpTrigger : MonoBehaviour
     [SerializeField]
     private PowerUp powerUp;
     private bool used = false;
+
+    [SerializeField] private bool killAfter = false;
+    [SerializeField] private float killAfterSeconds;
+
+    public UnityEvent onComplete;
+
     public void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (used) return;
@@ -39,7 +46,12 @@ public class PowerUpTrigger : MonoBehaviour
                     return;
             }
             CollisionManager.Instance.OnPowerUp(powerUp);
-            Destroy(gameObject);
+            
+            onComplete?.Invoke();
+            if (killAfter)
+            {
+                Destroy(gameObject, killAfterSeconds);
+            }
         }
     }
 
@@ -54,6 +66,7 @@ public class PowerUpTrigger : MonoBehaviour
     }
     public void ActivateBounce(AcornJumper acornJumper)
     {
-        acornJumper?.Bounce(5.0f, null);
+        Debug.Log("JUMP UP!");
+        acornJumper.Bounce(1f, null);
     }
 }
