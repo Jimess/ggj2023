@@ -11,24 +11,18 @@ public class LevelController : Singleton<LevelController>
     public static OnStartDelegate OnStart;
     public static OnEndDelegate OnEnd;
 
+    private int acornLife = 3;
+
     private void OnEnable()
     {
         CollisionManager.OnAcornEndCollision += EndGame;
+        CollisionManager.OnAcornDamageTaken += ReduceLife;
     }
 
     private void OnDestroy()
     {
         CollisionManager.OnAcornEndCollision -= EndGame;
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
+        CollisionManager.OnAcornDamageTaken -= ReduceLife;
     }
 
     public void StartGame()
@@ -40,5 +34,18 @@ public class LevelController : Singleton<LevelController>
     public void EndGame()
     {
         OnEnd?.Invoke();
+    }
+
+    public void ReduceLife()
+    {
+        acornLife -= 1;
+        if (acornLife <= 0) {
+            EndGame();
+        }
+    }
+
+    public int getAcornLife()
+    {
+        return acornLife;
     }
 }
