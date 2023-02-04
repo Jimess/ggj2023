@@ -8,7 +8,6 @@ public class AcornJumper : MonoBehaviour
     private const float MIN_BOUNCE_ANGLE = 30.0f;
     private const float BOUNCE_ANGLE_DELTA = MAX_BOUNCE_ANGLE - MIN_BOUNCE_ANGLE;
 
-    [SerializeField]
     private Rigidbody2D acorn;
 
     [Range(MIN_BOUNCE_ANGLE, MAX_BOUNCE_ANGLE)]
@@ -17,6 +16,10 @@ public class AcornJumper : MonoBehaviour
     [Range(0.0f, BOUNCE_ANGLE_DELTA)]
     public float angleRandomnes = MIN_BOUNCE_ANGLE;
 
+    void Start()
+    {
+        acorn = GetComponent<Rigidbody2D>();
+    }
     void OnEnable()
     {
         CollisionManager.OnAcornTrackCollision += Bounce;
