@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4970274713974309608
 MonoBehaviour:
@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1cfa8109606ab40904f7d3bf9e11a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acornLife: 2
+  tree: {fileID: 1107214779807203346, guid: 3eed6b6658cceca469486acf1e44a7cc, type: 3}
+  treeCam: {fileID: 0}

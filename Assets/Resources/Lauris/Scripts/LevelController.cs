@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class LevelController : Singleton<LevelController>
 {
@@ -16,6 +17,9 @@ public class LevelController : Singleton<LevelController>
     private int acornLife = MAX_LIFE;
     private int maxLife;
     private bool invurnable = false;
+
+    [SerializeField] GameObject tree;
+    [SerializeField] CinemachineVirtualCamera treeCam;
 
     private void OnEnable()
     {
@@ -80,6 +84,15 @@ public class LevelController : Singleton<LevelController>
     {
         invurnable = true;
         StartCoroutine(StartInvurnableTimer(invurnableTime));
+    }
+
+    public void SummonTree(Vector2 position)
+    {
+        GameObject otherTree = Instantiate(tree, position, Quaternion.identity);
+        otherTree.GetComponent<TreeGrow>().Grow(position);
+        treeCam.m_Follow = otherTree.transform;
+        treeCam.enabled = true;
+        //cineConfiner.m_BoundingShape2D = tree.GetComponent<PolygonCollider2D>();
     }
 
     IEnumerator StartInvurnableTimer(float invurnableTime)
