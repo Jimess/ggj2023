@@ -27,7 +27,7 @@ public class ControlAngularVelocity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class ControlAngularVelocity : MonoBehaviour
 
     private void LimitAngularVelocity()
     {
-        Debug.Log("Current vel " + rb2.velocity);
+        // Debug.Log("Current vel " + rb2.velocity);
         //angVelLimit = Mathf.Abs(rb2.angularVelocity);
 
 

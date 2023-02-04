@@ -6,7 +6,7 @@ public class CollisionManager : Singleton<CollisionManager>
     private const string POWERUP_TAG = "Powerup";
     private const string END_TAG = "End";
 
-    public delegate void OnAcornTrackCollisionDelegate();
+    public delegate void OnAcornTrackCollisionDelegate(float bounceForce);
     public delegate void OnAcornEndCollisionDelegate();
     public delegate void OnAcornPowerupCollisionDelegate();
 
@@ -16,14 +16,14 @@ public class CollisionManager : Singleton<CollisionManager>
 
     private void Start()
     {
-        
+
     }
 
-    public static void OnCollision(GameObject acorn, GameObject other)
+    public void OnCollision(AcornCollision collision, GameObject other)
     {
         if (other.CompareTag(TRACK_TAG))
         {
-            OnAcornTrackCollision?.Invoke();
+            OnAcornTrackCollision?.Invoke(collision.getBounceForce());
         }
 
         if (other.CompareTag(END_TAG))
