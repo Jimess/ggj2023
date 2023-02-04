@@ -31,7 +31,7 @@ public class AcornJumper : MonoBehaviour
         CollisionManager.OnAcornTrackCollision -= Bounce;
     }
 
-    private void Bounce(float bounceForce, Vector2 point)
+    public void Bounce(float bounceForce, Vector2 point)
     {
         if (!enabled) return;
 

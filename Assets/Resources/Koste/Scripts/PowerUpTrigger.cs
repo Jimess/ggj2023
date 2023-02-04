@@ -11,7 +11,8 @@ public enum PowerUp
 
 public class PowerUpTrigger : MonoBehaviour
 {
-    public PowerUp powerUp;
+    [SerializeField]
+    private PowerUp powerUp;
     private bool used = false;
     public void OnTriggerEnter2D(Collider2D collider2D)
     {
@@ -31,7 +32,7 @@ public class PowerUpTrigger : MonoBehaviour
                     break;
 
                 case PowerUp.Bounce:
-                    ActivateBounce();
+                    ActivateBounce(collider2D.gameObject.GetComponentInParent<AcornJumper>());
                     break;
 
                 default:
@@ -51,8 +52,8 @@ public class PowerUpTrigger : MonoBehaviour
     {
         LevelController.Instance.MakeInvurnable(4.0f);
     }
-    public void ActivateBounce()
+    public void ActivateBounce(AcornJumper acornJumper)
     {
-        Debug.Log("Bounce bounce");
+        acornJumper?.Bounce(5.0f, new Vector2());
     }
 }
