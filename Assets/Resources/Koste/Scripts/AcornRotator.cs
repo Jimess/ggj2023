@@ -22,6 +22,7 @@ public class AcornRotator : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!enabled) return;
         float inputDirection = Input.GetAxis("Horizontal");
         acorn.angularVelocity += inputForce * -inputDirection;
         Mathf.Clamp(acorn.angularVelocity, -maxRotation, maxRotation);

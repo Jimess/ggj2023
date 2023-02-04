@@ -26,15 +26,18 @@ public class AcornJumper : MonoBehaviour
     }
 
 
-    void OnDisabled()
+    void OnDisable()
     {
         CollisionManager.OnAcornTrackCollision -= Bounce;
     }
 
     private void Bounce(float bounceForce, Vector2 point)
     {
+        if (!enabled) return;
+
         Vector2 bounceVector = CalculateBounceVector();
         // Debug.Log(bounceVector);
+        acorn.velocity = Vector2.zero;
         acorn.AddForce(bounceVector * bounceForce, ForceMode2D.Impulse);
         //acorn.AddForceAtPosition(bounceVector * bounceForce, point, ForceMode2D.Impulse);
     }
