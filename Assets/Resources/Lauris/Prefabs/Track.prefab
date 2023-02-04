@@ -163,7 +163,7 @@ Transform:
   m_Children:
   - {fileID: 1832935235875119322}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1971053207 &2894289341383577897
 SpriteShapeRenderer:
@@ -908,7 +908,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 2894289341383577899}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b5fc1001035950428e60a4441b4296b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
