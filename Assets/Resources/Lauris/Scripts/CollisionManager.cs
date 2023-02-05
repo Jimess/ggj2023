@@ -12,21 +12,21 @@ public class CollisionManager : Singleton<CollisionManager>
 
     public delegate void OnAcornTrackCollisionDelegate(float bounceForce, Collision2D collision2D);
     public delegate void OnAcornEndCollisionDelegate(bool win);
-    public delegate void OnAcornPowerupCollisionDelegate(PowerUp powerup);
-    public delegate void OnAcornDamageTakenDelegate();
+    public delegate void OnAcornPowerupCollisionDelegate(PowerUp powerup, Vector2 position);
+    public delegate void OnAcornDamageTakenDelegate(Vector2 position = new Vector2());
 
     public static OnAcornTrackCollisionDelegate OnAcornTrackCollision;
     public static OnAcornEndCollisionDelegate OnAcornEndCollision;
     public static OnAcornPowerupCollisionDelegate OnAcornPowerupCollision;
     public static OnAcornDamageTakenDelegate OnAcornDamageTaken;
 
-    public void OnPowerUp(PowerUp powerUp)
+    public void OnPowerUp(PowerUp powerUp, Vector2 position)
     {
-        OnAcornPowerupCollision?.Invoke(powerUp);
+        OnAcornPowerupCollision?.Invoke(powerUp, position);
     }
-    public void OnDamageTaken()
+    public void OnDamageTaken(Vector2 position)
     {
-        OnAcornDamageTaken?.Invoke();
+        OnAcornDamageTaken?.Invoke(position);
     }
 
     public void OnCollision(GameObject acorn, GameObject other, Collision2D collision2D)

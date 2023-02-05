@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public enum PowerUp
 {
+    NONE,
     Heal,
     Invurnability,
     Bounce
@@ -45,9 +46,9 @@ public class PowerUpTrigger : MonoBehaviour
                 default:
                     return;
             }
-            CollisionManager.Instance.OnPowerUp(powerUp);
+            CollisionManager.Instance.OnPowerUp(powerUp, transform.position);
 
-            onComplete?.Invoke();
+            onComplete.Invoke();
             if (killAfter)
             {
                 Destroy(gameObject, killAfterSeconds);

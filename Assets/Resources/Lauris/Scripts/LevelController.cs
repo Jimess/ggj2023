@@ -58,7 +58,7 @@ public class LevelController : Singleton<LevelController>
             acornLife = maxLife;
         }
     }
-    public void ReduceLife()
+    public void ReduceLife(Vector2 pos)
     {
         if (IsInvurnable()) return;
         MakeInvurnable(1.0f);

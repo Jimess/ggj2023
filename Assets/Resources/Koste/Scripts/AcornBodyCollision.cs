@@ -8,7 +8,7 @@ public class AcornBodyCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(CollisionManager.TRACK_TAG))
         {
-            CollisionManager.Instance.OnDamageTaken();
+            CollisionManager.Instance.OnDamageTaken(collision.contacts[0].point);
         }
     }
 }

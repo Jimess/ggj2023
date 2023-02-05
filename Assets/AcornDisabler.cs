@@ -77,7 +77,7 @@ public class AcornDisabler : MonoBehaviour
         CollisionManager.OnAcornDamageTaken -= RegisterLastTouch;
     }
 
-    private void RegisterLastTouch()
+    private void RegisterLastTouch(Vector2 pos)
     {
         lastTouch = true;
         CollisionManager.OnAcornTrackCollision -= RegisterLastTouch;

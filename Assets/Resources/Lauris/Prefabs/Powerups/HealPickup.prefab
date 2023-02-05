@@ -27,12 +27,12 @@ Transform:
   m_GameObject: {fileID: 6788786842053747652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.8698945, y: -2.989892, z: -0.04990719}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.74463296, y: 0.74463296, z: 0.74463296}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6788786843063171544}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6788786842053747654
 BoxCollider2D:
@@ -91,9 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66ad21b97d87df4b970b1191a7ee71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: 0
+  powerUp: 1
   killAfter: 1
-  killAfterSeconds: 1
+  killAfterSeconds: 0.5
   onComplete:
     m_PersistentCalls:
       m_Calls: []
