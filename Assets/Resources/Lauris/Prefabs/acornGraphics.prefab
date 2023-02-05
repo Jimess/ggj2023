@@ -113,6 +113,8 @@ MonoBehaviour:
   materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 2100000, guid: 8dbf5eb182d9804488da05d3610810a4, type: 2}
+  intensity: 0
+  color: {r: 90.134514, g: 44.186897, b: 2.9761415, a: 0}
 --- !u!1 &324122685965243857
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +587,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
+  - {fileID: 21300000, guid: 2883aaeaeb7f62445bd6f3bc2670f273, type: 3}
   - {fileID: 21300000, guid: e19c5170afe53044ca227414ecf20fa5, type: 3}
   - {fileID: 21300000, guid: e64e4fc3eeec7144f9965f16dde56bdd, type: 3}
-  - {fileID: 0}

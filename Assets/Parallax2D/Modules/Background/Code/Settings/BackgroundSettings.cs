@@ -32,7 +32,7 @@ namespace Parallax2D.Modules.Background.Code.Settings
       }
 
       var assetPath = $"{PathToSavePrefabs}{backgroundContainer.name}.prefab";
-      PrefabUtility.SaveAsPrefabAsset(backgroundContainer.gameObject, assetPath);
+      //PrefabUtility.SaveAsPrefabAsset(backgroundContainer.gameObject, assetPath);
     }
 
     private void CreatedOneLayer(Transform backGroundLayerContainer, BackgroundLayerSetting backgroundLayerSetting,

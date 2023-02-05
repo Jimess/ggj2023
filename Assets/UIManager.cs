@@ -48,6 +48,6 @@ public class UIManager : MonoBehaviour
 
     public void RetryPressed()
     {
-        Initiate.Fade("Laurio", Color.gray, 1f);
+        Initiate.Fade("Main", Color.gray, 1f);
     }
 }

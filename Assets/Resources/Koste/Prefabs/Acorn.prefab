@@ -5016,7 +5016,7 @@ Transform:
   - {fileID: 53454059439894469}
   - {fileID: 1593374740}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.83}
 --- !u!50 &8974124312194831840
 Rigidbody2D:
@@ -5068,8 +5068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2025e99e61606074b8fb59bd438c313b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 38.1
-  angleRandomnes: 17
+  angle: 51
+  angleRandomnes: 10
 --- !u!114 &8974124312194831848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5221,30 +5221,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8974124312194831841}
     m_Modifications:
-    - target: {fileID: 1812217017, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
-      propertyPath: sprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 2883aaeaeb7f62445bd6f3bc2670f273, type: 3}
-    - target: {fileID: 1812217017, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
-      propertyPath: sprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: e19c5170afe53044ca227414ecf20fa5, type: 3}
-    - target: {fileID: 1812217017, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
-      propertyPath: sprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: e64e4fc3eeec7144f9965f16dde56bdd, type: 3}
-    - target: {fileID: 1966183070, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
-      propertyPath: color.b
-      value: 2.9761415
-      objectReference: {fileID: 0}
-    - target: {fileID: 1966183070, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
-      propertyPath: color.g
-      value: 44.186897
-      objectReference: {fileID: 0}
-    - target: {fileID: 1966183070, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
-      propertyPath: color.r
-      value: 90.134514
-      objectReference: {fileID: 0}
     - target: {fileID: 324122686283545224, guid: 1608f1192cb4187419871b71d7c25b20, type: 3}
       propertyPath: m_Name
       value: acornGraphics
