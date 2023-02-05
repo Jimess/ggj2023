@@ -63,7 +63,7 @@ public class PowerUpTrigger : MonoBehaviour
 
     public void ActivateInvurnability()
     {
-        LevelController.Instance.MakeInvurnable(4.0f);
+        LevelController.Instance.MakeInvurnable(4.0f, true);
     }
     public void ActivateBounce(AcornJumper acornJumper)
     {

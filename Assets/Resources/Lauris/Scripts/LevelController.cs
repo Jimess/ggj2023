@@ -9,9 +9,11 @@ public class LevelController : Singleton<LevelController>
     private const int MAX_LIFE = 3;
     public delegate void OnStartDelegate();
     public delegate void OnEndDelegate(bool win);
+    public delegate void OnInvurnableStateChangeDelegate(bool invurnable);
 
     public static OnStartDelegate OnStart;
     public static OnEndDelegate OnEnd;
+    public static OnInvurnableStateChangeDelegate OnInvurnableStateChange;
 
     [SerializeField]
     private int acornLife = MAX_LIFE;
@@ -61,7 +63,7 @@ public class LevelController : Singleton<LevelController>
     public void ReduceLife(Vector2 pos)
     {
         if (IsInvurnable()) return;
-        MakeInvurnable(1.0f);
+        MakeInvurnable(1.0f, false);
 
         acornLife -= 1;
         if (acornLife <= 0)
@@ -80,10 +82,11 @@ public class LevelController : Singleton<LevelController>
         return invurnable;
     }
 
-    public void MakeInvurnable(float invurnableTime)
+    public void MakeInvurnable(float invurnableTime, bool emitStateChanges)
     {
         invurnable = true;
-        StartCoroutine(StartInvurnableTimer(invurnableTime));
+        if (emitStateChanges) OnInvurnableStateChange?.Invoke(invurnable);
+        StartCoroutine(StartInvurnableTimer(invurnableTime, emitStateChanges));
     }
 
     public void SummonTree(Vector2 position)
@@ -95,9 +98,10 @@ public class LevelController : Singleton<LevelController>
         //cineConfiner.m_BoundingShape2D = tree.GetComponent<PolygonCollider2D>();
     }
 
-    IEnumerator StartInvurnableTimer(float invurnableTime)
+    IEnumerator StartInvurnableTimer(float invurnableTime, bool emitStateChanges)
     {
         yield return new WaitForSeconds(invurnableTime);
         invurnable = false;
+        if (emitStateChanges) OnInvurnableStateChange?.Invoke(invurnable);
     }
 }

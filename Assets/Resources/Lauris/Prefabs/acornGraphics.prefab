@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 324122685773086479}
   - component: {fileID: 324122685773086478}
   - component: {fileID: 324122685773086465}
+  - component: {fileID: 1966183070}
   m_Layer: 0
   m_Name: acorn_hat
   m_TagString: Untagged
@@ -97,6 +98,21 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_SortAtRoot: 0
+--- !u!114 &1966183070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324122685773086476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9653d7b4315334c9a4fe4720245844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8dbf5eb182d9804488da05d3610810a4, type: 2}
 --- !u!1 &324122685965243857
 GameObject:
   m_ObjectHideFlags: 0
