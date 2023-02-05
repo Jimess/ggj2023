@@ -35,6 +35,8 @@ public class CollisionManager : Singleton<CollisionManager>
         isCD = true;
         StartCoroutine(CD(1f));
 
+        AudioManager.Instance.PlaySFXDetached("helmet_hit");
+
         if (other.CompareTag(TRACK_TAG))
         {
             Debug.Log($"HIT {other.name}");

@@ -26,15 +26,20 @@ public class Issitaskymas : MonoBehaviour
     public void Explosion(bool win)
     {
         if (win) return;
-        
-        bodyToDisable.transform.DOScale(0f, 0.5f).SetEase(Ease.OutExpo);
-        mouthToDisable.transform.DOScale(0f, 0.5f).SetEase(Ease.OutExpo);
-        eyeToDisable.transform.DOScale(0f, 0.5f).SetEase(Ease.OutExpo).OnComplete(() => {
-            bodyToDisable.SetActive(false);
-            eyeToDisable.SetActive(false);
-            bodyToDisable.SetActive(false);
-            mouthToDisable.SetActive(false);
-        });
+
+        //bodyToDisable.transform.DOScale(0f, 0.5f).SetEase(Ease.OutExpo);
+        //mouthToDisable.transform.DOScale(0f, 0.5f).SetEase(Ease.OutExpo);
+        //eyeToDisable.transform.DOScale(0f, 0.5f).SetEase(Ease.OutExpo).OnComplete(() => {
+        //    bodyToDisable.SetActive(false);
+        //    eyeToDisable.SetActive(false);
+        //    bodyToDisable.SetActive(false);
+        //    mouthToDisable.SetActive(false);
+        //});
+
+        bodyToDisable.SetActive(false);
+        eyeToDisable.SetActive(false);
+        bodyToDisable.SetActive(false);
+        mouthToDisable.SetActive(false);
         SpawnGoreParts(transform.position, 3f);
     }
 

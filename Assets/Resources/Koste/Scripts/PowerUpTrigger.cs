@@ -58,15 +58,18 @@ public class PowerUpTrigger : MonoBehaviour
 
     public void ActivateHeal()
     {
+        AudioManager.Instance.PlaySFXDetached("powerup");
         LevelController.Instance.IncreaseLife();
     }
 
     public void ActivateInvurnability()
     {
+        AudioManager.Instance.PlaySFXDetached("powerup");
         LevelController.Instance.MakeInvurnable(4.0f, true);
     }
     public void ActivateBounce(AcornJumper acornJumper)
     {
+        AudioManager.Instance.PlaySFXDetached("bounce");
         acornJumper.Bounce(3.0f, null);
     }
 }

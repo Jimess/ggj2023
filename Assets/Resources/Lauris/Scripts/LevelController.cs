@@ -62,8 +62,14 @@ public class LevelController : Singleton<LevelController>
     }
     public void ReduceLife(Vector2 pos)
     {
-        if (IsInvurnable()) return;
-        MakeInvurnable(1.0f, false);
+        if (IsInvurnable())
+        {
+            AudioManager.Instance.PlaySFXDetached("haha");
+            return;
+        }
+        MakeInvurnable(0.2f, false);
+
+        AudioManager.Instance.PlaySFXDetached("hurt");
 
         acornLife -= 1;
         if (acornLife <= 0)

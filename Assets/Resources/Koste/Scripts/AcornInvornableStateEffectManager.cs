@@ -6,6 +6,9 @@ public class AcornInvornableStateEffectManager : MonoBehaviour
 {
     public List<Material> materials;
     private SpriteRenderer spriteRenderer;
+    public float intensity;
+    [ColorUsage(true, true)]
+    [SerializeField] private Color color;
 
     private void Start()
     {
@@ -24,5 +27,9 @@ public class AcornInvornableStateEffectManager : MonoBehaviour
     private void InvurnableStateChange(bool invurnable)
     {
         spriteRenderer.material = invurnable ? materials[1] : materials[0];
+        if (invurnable)
+        {
+            spriteRenderer.material.SetColor("Color_1256EBB7", color);
+        }
     }
 }
