@@ -45,11 +45,14 @@ public class AcornJumper : MonoBehaviour
     private Vector2 CalculateBounceVector()
     {
         float angle = RandomizeAngle(this.angle);
-        return new Vector2(Mathf.Abs(Mathf.Cos(angle)), Mathf.Abs(Mathf.Sin(angle)));
+        //return new Vector2(Mathf.Abs(Mathf.Cos(angle)), Mathf.Abs(Mathf.Sin(angle)));
+
+        return Quaternion.AngleAxis(angle, Vector3.forward) * new Vector2(1, 0).normalized;
     }
 
     private float RandomizeAngle(float angle)
     {
         return Mathf.Clamp(angle + Random.Range(-angleRandomnes, angleRandomnes), MIN_BOUNCE_ANGLE, MAX_BOUNCE_ANGLE);
+        //return 
     }
 }
